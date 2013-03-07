@@ -1,4 +1,10 @@
 <!doctype html>
+
+<!-- Connie Sivadon -->
+<!-- VFW1303 -->
+<!-- 07 March 2013 -->
+<!-- Project 1 additem.html -->
+
 <html>
 	<head>
 		<!-- Character Set Meta -->
@@ -29,25 +35,27 @@
 			<fieldset>
 				<legend>My Player Information</legend>
 				<ul>
-					<li><label for="name">Gamer Tag:</label><input type="text" id="gTag" /></li>
-					<li><label for="email">Email Address:</label><input type="email" id="email" placeholder="myemail@email.com"/></li>
-					<li><label for="url">Website:</label><input type="url" id="url" placeholder="www.mywebsite.com"/></li>
+					<li><label for="name">Gamer Tag:</label><input type="text" id="gTag" /></li><br />
+					<li><label for="email">Email Address:</label><input type="email" id="email" placeholder="myemail@email.com"/></li><br />
+					<li><label for="url">Website:</label><input type="url" id="url" placeholder="www.mywebsite.com"/></li><br />
 				</ul>	
 			</fieldset>
 			<fieldset>
 				<legend>Meeting Request Information</legend>
 				<ul>
+					<li><label for="date">When do you want the meeting?</label><input type="date" /></li><br />
+						<!-- The date only looks the way I want it in Google Chrome. -->
 					<li>What type of meeting would you like?
 						<ul>
-							<li><input type="radio" value="chat" id="chat" name="meetingtype" /><label for="chat">Online Chat Session</label></li>
+							<li><input type="radio" checked value="chat" id="chat" name="meetingtype" /><label for="chat">Online Chat Session</label></li>
 							<li><input type="radio" value="training" id="training" name="meetingtype" /><label for="training">Training Session</label></li>
 							<li><input type="radio" value="cmatch" id="cmatch" name="meetingtype" /><label for="cmatch">Clan Match</label></li>
 							<li><input type="radio" value="pmatch" id="pmatch" name="meetingtype" /><label for="pmatch">Private Match</label></li>
 						</ul>
-					</li>
+					</li><br />
 					<li>What game would you like to discuss/play?
 						<ul>
-							<li><input type="checkbox" value="codbo1" id="codbo1" /><label for="codbo1">COD Black Ops</label></li>
+							<li><input type="checkbox" checked value="codbo1" id="codbo1" /><label for="codbo1">COD Black Ops</label></li>
 							<li><input type="checkbox" value="codbo2" id="codbo2" /><label for="codbo2">COD Black Ops 2</label></li>
 							<li><input type="checkbox" value="gow1" id="gow1" /><label for="gow1">Gears of War</label></li>
 							<li><input type="checkbox" value="gow2" id="gow2" /><label for="gow2">Gears of War 2</label></li>
@@ -57,14 +65,24 @@
 									<li><label for="otherinput">Game Title:</label><input type="text" id="otherinput" /></li>
 								</ul>
 						</ul>
-					</li>
+					</li><br />
+					<li>
+						<label for="timeofday">What time of day would you like this meeting to take place?</label>
+						<select id="timeofday">
+							<option value="morning">Morning</option>
+							<option value="afternoon">Afternoon</option>
+							<option value="evening">Evening</option>
+						</select>
+					</li><br />
+					<li><label for="howlong">How long would you like the meeting to last?(1-5 hours)</label><input id="howlong" type="range" min="1" max="5" step="1" /></li><br />
+					<li><label for="moreinfo">Any other information you would like to provide?</label><textarea id="moreinfo">Headshots only!</textarea></li>
 				</ul>
 			</fieldset>
-			
+			<input type="submit" value="Game On!"><br />
+			<nav>
+				<a href="#">Show scheduled meetings</a><br />
+				<a href="#">Clear local storage</a><br />
+			</nav>
 		</form>
 	</body>
-<!-- Connie Sivadon -->
-<!-- VFW1303 -->
-<!-- 07 March 2013 -->
-<!-- Project 1 additem.html -->
 </html>
