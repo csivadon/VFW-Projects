@@ -1,33 +1,70 @@
 <!doctype html>
 <html>
 	<head>
-
 		<!-- Character Set Meta -->
 		<meta charset="utf-8" />
-
-		<!--Page Title-->
-		<title>Clan Meeting Requests</title>
-
+		<!-- Info for searches -->
+		<meta name="description" content="Request a clan meeting form." />
+		<meta name="keywords" content="clan meeting, form, vfw 1303, project 1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<!-- Display Width -->
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="viewport" content="target-densitydpi=device-dpi" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<!-- Page Title -->
+		<title>Clan Meeting Request Form</title>
 		<!-- Link CSS -->
-		<link rel="stylesheet" type="text/css" href="filename.css"/>
-    
-    </head>
+		<!-- <link href="filename.css" rel="stylesheet" type="text/css" /> -->
+		<!-- Link js -->
+		<!-- <script src='filename.js' type="text/javascript" ></script> -->
+	</head>	
 	<body>
-
-		<!-- Page content lives here. -->
-		<h1>This is my main heading!</h1>
-
-			<h2>This is my subheading.</h2>
-
-				<h3>This is where my subsub heading would go...</h3>
-
-					<p>This is where my first paragraph would go?</p>
-
-					<p>This is where my second paragraph would go!!</p>
-
-			<h2>This is where my second subheading would go.</h2>
-
-				<p>This is another paragraph.</p>
-
+		<header>
+			<h1>
+				Meeting Request Information
+			</h1>
+		</header>
+		<form action="#" method="post">
+			<fieldset>
+				<legend>My Player Information</legend>
+				<ul>
+					<li><label for="name">Gamer Tag:</label><input type="text" id="gTag" /></li>
+					<li><label for="email">Email Address:</label><input type="email" id="email" placeholder="myemail@email.com"/></li>
+					<li><label for="url">Website:</label><input type="url" id="url" placeholder="www.mywebsite.com"/></li>
+				</ul>	
+			</fieldset>
+			<fieldset>
+				<legend>Meeting Request Information</legend>
+				<ul>
+					<li>What type of meeting would you like?
+						<ul>
+							<li><input type="radio" value="chat" id="chat" name="meetingtype" /><label for="chat">Online Chat Session</label></li>
+							<li><input type="radio" value="training" id="training" name="meetingtype" /><label for="training">Training Session</label></li>
+							<li><input type="radio" value="cmatch" id="cmatch" name="meetingtype" /><label for="cmatch">Clan Match</label></li>
+							<li><input type="radio" value="pmatch" id="pmatch" name="meetingtype" /><label for="pmatch">Private Match</label></li>
+						</ul>
+					</li>
+					<li>What game would you like to discuss/play?
+						<ul>
+							<li><input type="checkbox" value="codbo1" id="codbo1" /><label for="codbo1">COD Black Ops</label></li>
+							<li><input type="checkbox" value="codbo2" id="codbo2" /><label for="codbo2">COD Black Ops 2</label></li>
+							<li><input type="checkbox" value="gow1" id="gow1" /><label for="gow1">Gears of War</label></li>
+							<li><input type="checkbox" value="gow2" id="gow2" /><label for="gow2">Gears of War 2</label></li>
+							<li><input type="checkbox" value="gow3" id="gow3" /><label for="gow3">Gears of War 3</label></li>
+							<li><input type="checkbox" value="other" id="other" /><label for="other">Other</label></li>
+								<ul>
+									<li><label for="otherinput">Game Title:</label><input type="text" id="otherinput" /></li>
+								</ul>
+						</ul>
+					</li>
+				</ul>
+			</fieldset>
+			
+		</form>
 	</body>
+<!-- Connie Sivadon -->
+<!-- VFW1303 -->
+<!-- 07 March 2013 -->
+<!-- Project 1 additem.html -->
 </html>
