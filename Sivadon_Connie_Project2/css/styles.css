@@ -6,3 +6,23 @@ VFW1303
 Project 1 styles.css
 
 */
+
+body{
+	background: #333;
+	width:auto;
+	margin: 50px auto;
+	font-family: "Comic Sans MS", cursive;
+	color: #CCC;
+	line-height: 1.7em;
+	}
+	
+hgroup{
+	border-bottom: 2px outset #90C;
+	padding-bottom: 20px;
+	margin-bottom: 25px;
+	text-align:center;
+	}
+	
+h2{
+	
+	}
