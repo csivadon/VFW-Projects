@@ -22,8 +22,6 @@
 		<title>Clan Meeting Request Form</title>
 		<!-- Link CSS -->
 		<link href="css/styles.css" rel="stylesheet" type="text/css" />
-		<!-- Link js -->
-		<script src="js/main.js" type="text/javascript" ></script>
 	</head>	
 	<body>
 		<header>
@@ -76,15 +74,17 @@
 							<option value="evening">Evening</option>
 						</select>
 					</li><br />
-					<li><label for="howlong">How long would you like the meeting to last?(1-5 hours)</label><input id="howlong" type="range" min="1" max="5" step="1" /></li><br />
-					<li><label for="moreinfo">Any other information you would like to provide?</label><textarea id="moreinfo">Headshots only!</textarea></li>
+					<li><label for="howlong">How long would you like the meeting to last?(1-5 hours)</label><input id="howLong" type="range" min="1" max="5" step="1" /></li><br />
+					<li><label for="moreinfo">Any other information you would like to provide?</label><textarea id="moreInfo">Headshots only!</textarea></li>
 				</ul>
 			</fieldset>
 			<input type="button" id="button" value="Game On!"><br />
 			<nav>
-				<a href="#">Show scheduled meetings</a><br />
-				<a href="#">Clear local storage</a><br />
+				<a href="#">Show meeting requests</a><id="Show meeting requests"><br />
+				<a href="#">Clear local storage</a><id="clear"><br />
 			</nav>
 		</form>
+    	<!-- Link js -->
+		<script src="js/main.js" type="text/javascript" ></script>
 	</body>
 </html>
