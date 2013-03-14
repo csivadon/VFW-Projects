@@ -28,19 +28,22 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectList.appendChild(makeSel);
 	}
 
-	/*Can't get this functions to work.
+/*
+	//Can't get this functions to work.
 	//value of radio
-	function getSelectedRadio() {
+	function getSelectedRadio(){
 		var radios = document.forms[0].meetingType;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].checked){
 				meetingTypeValue = radios[i].value;
 			}
 		}
-	}*/
-	/*Can't get this functions to work.	
+	}
+*/
+/*
+	//Can't get this functions to work.	
 	//value of checkbox
-	function getCheckboxValue() {
+	function getCheckboxValue(){
 		var checkbox = document.forms[0].game;
 		for(var i=0; i<checkbox.length; i++){
 			if(checkbox[i].checked){
@@ -118,7 +121,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//clear function
-	function clearData(){
+	function clearLink(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.")
 		}else{
@@ -140,7 +143,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	displayData.addEventListener("click", getData);
 	
 	var clearData = $("clear");
-	clearData.addEventListener("click", clearData);
+	clearData.addEventListener("click", clearLink);
 	
 	var request = $("requestNow");
 	request.addEventListener("click", storeData);

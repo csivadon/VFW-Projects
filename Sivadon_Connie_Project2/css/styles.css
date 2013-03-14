@@ -8,21 +8,41 @@ Project 1 styles.css
 */
 
 body{
-	background: #333;
+	background: #668;
 	width:auto;
 	margin: 50px auto;
 	font-family: "Comic Sans MS";
 	color: #CCC;
 	line-height: 1.7em;
+	font-weight: bold;
 	}
 	
 hgroup{
-	border-bottom: 2px outset #90C;
+	border: 20px outset #90C;
 	padding-bottom: 20px;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 	text-align:center;
 	}
 	
-h2{
+h1{
+	font-style:oblique;
+}
 	
+fieldset{
+	border: 15px outset #90C;
 	}
+	
+a:hover{
+	color:white;
+	outline:none;
+}
+
+.button{
+  	background:#C9F;
+	color:#000;	
+ }
+
+.button:hover {
+  	background:#FFF;
+	color:#90C
+ }
