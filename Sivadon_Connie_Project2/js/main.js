@@ -5,7 +5,7 @@
 
 // DOM Function
 window.addEventListener("DOMContentLoaded", function(){
-	
+
 	//getElementById Function	
 	function $(x){
 	var theElement = document.getElementById(x);
@@ -28,30 +28,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectList.appendChild(makeSel);
 	}
 
-/*
-	//Can't get this functions to work.
-	//value of radio
-	function getSelectedRadio(){
-		var radios = document.forms[0].meetingType;
-		for(var i=0; i<radios.length; i++){
-			if(radios[i].checked){
-				meetingTypeValue = radios[i].value;
-			}
-		}
-	}
-*/
-/*
-	//Can't get this functions to work.	
-	//value of checkbox
-	function getCheckboxValue(){
-		var checkbox = document.forms[0].game;
-		for(var i=0; i<checkbox.length; i++){
-			if(checkbox[i].checked){
-				gameValue = checkbox[i].value;
-			}
-		}
-	}*/
-
+	//checkbox value function
+	
+	
 
 	function toggleControls(n){
 		switch(n){
@@ -72,18 +51,39 @@ window.addEventListener("DOMContentLoaded", function(){
 				return false;
 		}
 	}
+	
+	//selected radio button
+	function getSelectedRadio(){
+		var radio = document.forms[0].meetingtype;
+		for(var i=0; i<radio.length; i++){
+			if(radio[i].checked){
+			checkedValue = radio[i].value;
+			}
+		}
+	}
+	
+	//selected checkbox value
+	function getSelectedCheckbox(){
+		var checkboxes = document.forms[0].check;
+		for(var i=0; i<checkboxes.length; i++){
+			if(checkboxes[i].checked){
+			gameValue = checkboxes[i].value;
+			}
+		}
+	}
+	
 	//store data function
 	function storeData(){
 		var id			= Math.floor(Math.random()*10000001);
-		//getSelectedRadio();
-		//getCheckboxValue();
+		getSelectedRadio();
+		getSelectedCheckbox();
 		var item				= {};
 		    item.gTag			= ["Gamer Tag:", $("gTag").value];
 		    item.email			= ["Email:", $("email").value];
 		    item.url			= ["Url:", $("url").value];
 		    item.date			= ["Date:", $("date").value];
-		    //item.meetingType	= ["Meeting Type:", meetingTypeValue];
-		    //item.game			= ["Game:", gameValue];
+		    item.meetingType		= ["Meeting Type:", checkedValue];
+		    item.game			= ["Game:", gameValue];
 		    item.time			= ["Time of Day:", $("time").value];
 		    item.howLong		= ["For How Long:", $("howLong").value];
 		    item.moreInfo		= ["More Info:", $("moreInfo").value];
@@ -133,10 +133,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//Variable default
-	var timeOfDay = ["--Choose Time Frame--", "morning", "afternoon", "evening"],
-	    meetingTypeValue,
-	    gameValue
-	;
+	var timeOfDay = ["--Choose Time Frame--", "morning", "afternoon", "evening"];
+	var checkedValue;
+	var gameValue;
 	
 	//Set Link & Submit Click Events
 	var displayData = $("showMeetingRequests");
@@ -150,8 +149,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Function Calls
 	createElements();
-	//meetingTypeValue();
-	//gameValue();
+	
 	
 	
 });
