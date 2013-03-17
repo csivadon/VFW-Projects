@@ -1,0 +1,91 @@
+<!doctype html>
+
+<!-- Connie Sivadon -->
+<!-- VFW1303 -->
+<!-- 21 March 2013 -->
+<!-- Project 3 additem.html -->
+
+<html>
+	<head>
+		<!-- Character Set Meta -->
+		<meta charset="utf-8" />
+		<!-- Info for searches -->
+		<meta name="description" content="Request a clan meeting form." />
+		<meta name="keywords" content="clan meeting, form, vfw 1303, project 1" />
+		<meta name="robots" content="noindex, nofollow" />
+		<!-- Display Width -->
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="viewport" content="target-densitydpi=device-dpi" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<!-- Page Title -->
+		<title>Clan Meeting Request Form</title>
+		<!-- Link CSS -->
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	</head>	
+	<body>
+		<header>
+			<hgroup>
+				<h1>
+					Meeting Request Information
+				</h1>
+                <nav>
+                    <a href="#" id="showMeetingRequests">Show meeting requests</a><br />
+                    <a href="#" id="clear">Clear local storage</a><br />
+                    <a href="additem.html" id="add" style="display: none">Back to Request Page</a>
+				</nav>
+			</hgroup>
+		</header>
+		<form action="#" method="post" id="clanMeetingForm" />
+			<fieldset id="gamerInfoFieldset">
+				<legend>My Player Information</legend>
+				<ul id="contactInfo">
+					<li><label for="name">Gamer Tag:</label><input type="text" id="gTag" /></li><br />
+					<li><label for="email">Email Address:</label><input type="email" id="email" placeholder="myemail@email.com"/></li><br />
+					<li><label for="url">Website:</label><input type="url" id="url" placeholder="www.mywebsite.com"/></li><br />
+				</ul>	
+			</fieldset>
+			<fieldset id="meetingInfoFieldset">
+				<legend>Meeting Request Information</legend>
+				<ul id="meetInfo">
+					<li><label for="date">When do you want the meeting?</label><input type="date" id="date" /></li><br />
+						<!-- The date only looks the way I want it in Google Chrome. -->
+					<li><label for="meetingType" id="meetingType" >What type of meeting would you like?
+						<ul class="checkbox">
+							<li><input type="radio" value="chat" id="chat" name="meetingtype" /><label for="chat">Online Chat Session</label></li>
+							<li><input type="radio" value="training" id="training" name="meetingtype" /><label for="training">Training Session</label></li>
+							<li><input type="radio" value="cmatch" id="cmatch" name="meetingtype" /><label for="cmatch">Clan Match</label></li>
+							<li><input type="radio" value="pmatch" id="pmatch" name="meetingtype" /><label for="pmatch">Private Match</label></li>
+						</ul>
+					</li><br />
+					<li><label for "game" id="game">What game would you like to discuss/play?
+						<ul class="checkbox">
+							<li><input type="checkbox" value="codbo1" id="codbo1" name="check" /><label for="codbo1">COD Black Ops</label></li>
+							<li><input type="checkbox" value="codbo2" id="codbo2" name="check" /><label for="codbo2">COD Black Ops 2</label></li>
+							<li><input type="checkbox" value="gow1" id="gow1" name="check" /><label for="gow1">Gears of War</label></li>
+							<li><input type="checkbox" value="gow2" id="gow2" name="check" /><label for="gow2">Gears of War 2</label></li>
+							<li><input type="checkbox" value="gow3" id="gow3" name="check" /><label for="gow3">Gears of War 3</label></li>
+							<li><input type="checkbox" value="other" id="other" name="check" /><label for="other">Other</label>
+								<ul id="otherTxtBox">
+									<li><label for="otherinput">Game Title:</label><input type="text" id="otherinput" /></li>
+								</ul>
+                            </li>
+						</ul>
+					</li><br />
+					<li id="timeSelect"><label for="timeofday">What time of day would you like this meeting to take place?</label></li>
+						<!--<select id="timeofday">
+							<option value="morning">Morning</option>
+							<option value="afternoon">Afternoon</option>
+							<option value="evening">Evening</option>
+						</select>-->
+					<br />
+					<li><label for="howlong">How long would you like the meeting to last?(1-5 hours)</label><input id="howLong" type="range" min="1" max="5" step="1" /></li><br />
+					<li><label for="moreinfo">Any other information you would like to provide?</label><textarea id="moreInfo" placeholder="Headshots Only!"></textarea></li>
+				</ul>
+			</fieldset>
+            	<input type="button" id="requestNow" value="Game On!" class="button"><br />
+		</form>
+    	<!-- Link js -->
+		<script src="js/main.js" type="text/javascript" ></script>
+	</body>
+</html>

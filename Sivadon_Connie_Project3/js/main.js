@@ -1,7 +1,7 @@
 // Connie Sivadon
 // VFW1303
-// 14 March 2013
-// Project 1 main.js
+// 21 March 2013
+// Project 3 main.js
 
 // DOM Function
 window.addEventListener("DOMContentLoaded", function(){
@@ -101,7 +101,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		document.body.appendChild(makeDiv);
 		$("data").style.display = "block";
 		for(var i=0, l=localStorage.length; i<l; i++){
-			makeList = document.createElement("li");
+			var makeList = document.createElement("li");
+			var linksList = document.createElement("li");
 			makeLi.appendChild(makeList);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
@@ -113,11 +114,13 @@ window.addEventListener("DOMContentLoaded", function(){
 				subList.appendChild(makeSub);
 				var optSubTxt = obj[n][0] + " " + obj[n][1];
 				makeSub.innerHTML = optSubTxt;
-			}		
+				subList.appendChild(linksList);
+			}
+			//makeEditLinks();
 		}
 	}
 	
-	//clear function
+	//clear function.
 	function clearLink(){
 		if(localStorage.length === 0){
 			alert("There is no data to clear.")
