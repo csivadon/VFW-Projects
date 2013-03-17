@@ -116,8 +116,30 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSub.innerHTML = optSubTxt;
 				subList.appendChild(linksList);
 			}
-			//makeEditLinks();
+			makeEditLinks(localStorage.key(i), linksList);
 		}
+	}
+	
+	//Edit and Delete links
+	function makeEditLinks(key, linksList){
+		var editLink = document.createElement("a");
+		editLink.href = "#";
+		editLink.key = key;
+		var editPhrase = "Edit Meeting Request";
+		//editLink.addEventListener("click", editMeetReq);
+		editLink.innerHTML = editPhrase;
+		linksList.appendChild(editLink);
+		
+		var makeBrTag = document.createElement("br");
+		linksList.appendChild(makeBrTag);
+		
+		var deleteLink = document.createElement("a");
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deletePhrase = "Delete Meeting Request";
+		//deleteLink.addEventListener("click", deleteMeetReq);
+		deleteLink.innerHTML = deletePhrase;
+		linksList.appendChild(deleteLink);
 	}
 	
 	//clear function.
