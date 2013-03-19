@@ -126,7 +126,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		editLink.href = "#";
 		editLink.key = key;
 		var editPhrase = "Edit Meeting Request";
-		//editLink.addEventListener("click", editMeetReq);
+		editLink.addEventListener("click", editMeetReq);
 		editLink.innerHTML = editPhrase;
 		linksList.appendChild(editLink);
 		
@@ -142,6 +142,48 @@ window.addEventListener("DOMContentLoaded", function(){
 		linksList.appendChild(deleteLink);
 	}
 	
+	function editMeetReq(){
+		var value = localStorage.getItem(this.key);
+		var item = JSON.parse(value);
+		
+		toggleControls("off");
+		
+		$("gTag").value = item.gTag[1];
+		$("email").value = item.email[1];
+		$("url").value = item.url[1];
+		$("date").value = item.date[1];
+		var radios = document.forms[0].meetingType;
+		for(var i=0; o<radios.length; i++){
+			if(radios[i].value == "chat" && item.meetingType[1] == "chat"){
+				radios[i].setAttribute("checked", "checked");
+			}else if (radios[i].value == "training" && item.meetingType[1] == "training"){
+				radios[i].setAttribute("checked", "checked");
+			}else if (radios[i].value == "clan match" && item.meetingType[1] == "clan match"){
+				radios[i].setAttribute("checked", "checked");
+			}else if (radios[i].value == "private match" && item.meetingType[1] == "private match"){
+				radios[i].setAttribute("checked", "checked");
+			}
+		}
+		var checkBox = document.forms[0].game;
+		for(var i=0; o<checkBox.length; i++){
+			if(checkBox[i].value == "Black Ops 2" && item.check[1] == "Black Ops 2"){
+				checkBox[i].setAttribute("checked", "checked");
+			}else if (checkBox[i].value == "Gears of War 3" && item.check[1] == "Gears of War 3"){
+				checkBox[i].setAttribute("checked", "checked");
+			}
+		}
+		$("time").value = item.time[1];
+		$("howLong").value = item.howLong[1];
+		$("moreInfo").value = item.moreInfo[1];
+		
+		request.removeEventListener("click", storeData);
+		$("requestNow").value = "Edit Meeting";
+		var editMeeting = $("requestNow");
+		editMeeting.addEventListener("click", varify);
+		editMeeting.key = this.key;
+					
+	}
+	
 	//clear function.
 	function clearLink(){
 		if(localStorage.length === 0){
@@ -154,10 +196,53 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function varify(event){
+		var checkGtag = $("gTag");
+		var checkEmail = $("email");
+		var checkDate = $("date");
+		
+		errMessage.innerHTML = "";
+		checkGtag.style.border = "1px solid black";
+		checkEmail.style.border = "1px solid black";
+		checkDate.style.border = "1px solid black";
+		
+		var errorMsgs = [];
+		if(checkGtag.value === ""){
+			var gTagError = "Please provide your Gamer Tag.";
+			checkGtag.style.border = "2px solid red";
+			errorMsgs.push(gTagError);
+		}
+		var re1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if(!(re1.exec(checkEmail.value))){
+			var emailError = "Please provide a valid email address.";
+			checkEmail.style.border = "2px solid red";
+			errorMsgs.push(emailError);
+		}
+		var re2 = /^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$/
+		if(!(re2.exec(checkDate.value))){
+			var dateError = "Please enter a valid date.";
+			checkDate.style.border = "2px solid red";
+			errorMsgs.push(dateError);
+		}
+		if(errorMsgs.length >= 1){
+			for(var i=0; i<errorMsgs.length; i++){
+				var errorTxt = document.createElement("li");
+				errorTxt.innerHTML = errorMsgs[i];
+				errMessage.appendChild(errorTxt);
+			}
+			event.preventDefault();
+			return false;
+		}else{
+			storeData();
+		}
+		
+	}
+	
 	//Variable default
 	var timeOfDay = ["--Choose Time Frame--", "morning", "afternoon", "evening"];
 	var checkedValue;
 	var gameValue;
+	var errMessage = $("errorMessages");
 	
 	//Set Link & Submit Click Events
 	var displayData = $("showMeetingRequests");
@@ -167,7 +252,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	clearData.addEventListener("click", clearLink);
 	
 	var request = $("requestNow");
-	request.addEventListener("click", storeData);
+	request.addEventListener("click", varify);
 	
 	//Function Calls
 	createElements();
