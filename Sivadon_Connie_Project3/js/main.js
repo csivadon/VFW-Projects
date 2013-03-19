@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	return theElement;
 	}
 	
+	
 	//Select Field Elements
 	function createElements(){
 		var formTag = document.getElementsByTagName("form"),
@@ -28,6 +29,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		selectList.appendChild(makeSel);
 	}
 
+	
 	//checkbox value function
 	function toggleControls(n){
 		switch(n){
@@ -49,6 +51,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	
 	//selected radio button
 	function getSelectedRadio(){
 		var radio = document.forms[0].meetingtype;
@@ -58,6 +61,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			}
 		}
 	}
+	
 	
 	//selected checkbox value
 	function getSelectedCheckbox(){
@@ -69,9 +73,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	
 	//store data function
-	function storeData(){
-		var id			= Math.floor(Math.random()*10000001);
+	function storeData(key){
+		if(!key){
+			var id	= Math.floor(Math.random()*10000001);
+		}else{
+			id = key;
+		}
 		getSelectedRadio();
 		getSelectedCheckbox();
 		var item				= {};
@@ -87,6 +96,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Meeting Requested!");
 	}
+	
 	
 	//get data from local storage
 	function getData(){
@@ -120,6 +130,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	
 	//Edit and Delete links
 	function makeEditLinks(key, linksList){
 		var editLink = document.createElement("a");
@@ -137,11 +148,13 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deletePhrase = "Delete Meeting Request";
-		//deleteLink.addEventListener("click", deleteMeetReq);
+		deleteLink.addEventListener("click", deleteMeetReq);
 		deleteLink.innerHTML = deletePhrase;
 		linksList.appendChild(deleteLink);
 	}
 	
+	
+	//Edit function
 	function editMeetReq(){
 		var value = localStorage.getItem(this.key);
 		var item = JSON.parse(value);
@@ -184,6 +197,19 @@ window.addEventListener("DOMContentLoaded", function(){
 					
 	}
 	
+	
+	//delete function
+	function deleteMeetReq(){
+		var askUser = confirm("Are you sure you want to delete this request?");
+		if(askUser){
+			localStorage.removeItem(this.key);
+			alert("Request deleted!");
+			window.location.reload();
+		}else{
+			alert("Request not deleted.");
+		}
+	}
+	
 	//clear function.
 	function clearLink(){
 		if(localStorage.length === 0){
@@ -196,6 +222,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	
+	//verify function
 	function varify(event){
 		var checkGtag = $("gTag");
 		var checkEmail = $("email");
@@ -218,8 +246,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			checkEmail.style.border = "2px solid red";
 			errorMsgs.push(emailError);
 		}
-		var re2 = /^((((0[13578])|([13578])|(1[02]))[\/](([1-9])|([0-2][0-9])|(3[01])))|(((0[469])|([469])|(11))[\/](([1-9])|([0-2][0-9])|(30)))|((2|02)[\/](([1-9])|([0-2][0-9]))))[\/]\d{4}$|^\d{4}$/
-		if(!(re2.exec(checkDate.value))){
+		if(checkDate.value === ""){
 			var dateError = "Please enter a valid date.";
 			checkDate.style.border = "2px solid red";
 			errorMsgs.push(dateError);
@@ -233,7 +260,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			event.preventDefault();
 			return false;
 		}else{
-			storeData();
+			storeData(this.key);
 		}
 		
 	}

@@ -15,41 +15,38 @@ body{
 	color: #CCC;
 	line-height: 1.7em;
 	font-weight: bold;
-	}
-	
+	}	
 hgroup{
 	border: 20px outset #90C;
 	padding-bottom: 20px;
 	margin-bottom: 20px;
 	text-align:center;
-	}
-	
+	}	
 h1{
 	font-style:oblique;
-}
-	
+}	
 fieldset{
 	border: 15px outset #90C;
 	}
-	
+.error{
+	color: red;
+}
 a:hover{
 	color:white;
 	outline:none;
 }
-
 ul{
 	border-spacing:40px;
 	}
 li{
 	alignment-baseline:central;
 }
-
 .button{
   	background:#C9F;
 	color:#000;	
  }
-
 .button:hover {
   	background:#FFF;
 	color:#90C
  }
+ 
