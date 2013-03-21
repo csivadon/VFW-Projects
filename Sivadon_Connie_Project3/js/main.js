@@ -79,7 +79,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		if(!key){
 			var id	= Math.floor(Math.random()*10000001);
 		}else{
-			id = key;
+			var id = key;
 		}
 		getSelectedRadio();
 		getSelectedCheckbox();
@@ -88,8 +88,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		    item.email			= ["Email:", $("email").value];
 		    item.url			= ["Url:", $("url").value];
 		    item.date			= ["Date:", $("date").value];
-		    item.meetingType		= ["Meeting Type:", checkedValue];
-		    item.game			= ["Game:", gameValue];
+		    item.meetingtype		= ["Meeting Type:", checkedValue];
+		    item.check			= ["Game:", gameValue];
 		    item.time			= ["Time of Day:", $("time").value];
 		    item.howLong		= ["For How Long:", $("howLong").value];
 		    item.moreInfo		= ["More Info:", $("moreInfo").value];
@@ -165,33 +165,33 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("email").value = item.email[1];
 		$("url").value = item.url[1];
 		$("date").value = item.date[1];
-		var radios = document.forms[0].meetingType;
-		for(var i=0; o<radios.length; i++){
-			if(radios[i].value == "chat" && item.meetingType[1] == "chat"){
+		var radios = document.forms[0].meetingtype;
+		for (var i=0; i<radios.length; i++){
+			if(radios[i].value == "chat" && item.meetingtype[1] == "chat"){
 				radios[i].setAttribute("checked", "checked");
-			}else if (radios[i].value == "training" && item.meetingType[1] == "training"){
+			}else if (radios[i].value == "training" && item.meetingtype[1] == "training"){
 				radios[i].setAttribute("checked", "checked");
-			}else if (radios[i].value == "clan match" && item.meetingType[1] == "clan match"){
+			}else if (radios[i].value == "clan match" && item.meetingtype[1] == "clan match"){
 				radios[i].setAttribute("checked", "checked");
-			}else if (radios[i].value == "private match" && item.meetingType[1] == "private match"){
+			}else if (radios[i].value == "private match" && item.meetingtype[1] == "private match"){
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
-		var checkBox = document.forms[0].game;
-		for(var i=0; o<checkBox.length; i++){
-			if(checkBox[i].value == "Black Ops 2" && item.check[1] == "Black Ops 2"){
-				checkBox[i].setAttribute("checked", "checked");
-			}else if (checkBox[i].value == "Gears of War 3" && item.check[1] == "Gears of War 3"){
-				checkBox[i].setAttribute("checked", "checked");
+		var checkbox = document.forms[0].check;
+		for (var i=0; i<checkbox.length; i++){
+			if(checkbox[i].value == "Black Ops 2" && item.check[1] == "Black Ops 2"){
+				checkbox[i].setAttribute("checked", "checked");
+			}else if (checkbox[i].value == "Gears of War 3" && item.check[1] == "Gears of War 3"){
+				checkbox[i].setAttribute("checked", "checked");
 			}
 		}
 		$("time").value = item.time[1];
 		$("howLong").value = item.howLong[1];
 		$("moreInfo").value = item.moreInfo[1];
 		
-		request.removeEventListener("click", storeData);
-		$("requestNow").value = "Edit Meeting";
-		var editMeeting = $("requestNow");
+		button.removeEventListener("click", storeData);
+		$("button").value = "Edit Meeting";
+		var editMeeting = $("button");
 		editMeeting.addEventListener("click", varify);
 		editMeeting.key = this.key;
 					
@@ -278,7 +278,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	var clearData = $("clear");
 	clearData.addEventListener("click", clearLink);
 	
-	var request = $("requestNow");
+	var request = $("button");
 	request.addEventListener("click", varify);
 	
 	//Function Calls
